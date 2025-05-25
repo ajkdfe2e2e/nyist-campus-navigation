@@ -1,6 +1,8 @@
 /**
  * 南阳理工学院校园导航系统
  * 主脚本文件
+ * 作者：杨博文（2415929683）
+ * 完成日期：2025.5.20
  */
 
 // 当页面加载完成后执行
@@ -72,14 +74,12 @@ function initSelects() {
     // 按校区分组
     const campusGroups = {
         [CAMPUS.WEST_NORTH]: document.createElement('optgroup'),
-        [CAMPUS.EAST_SOUTH]: document.createElement('optgroup'),
-        [CAMPUS.QIYI]: document.createElement('optgroup')
+        [CAMPUS.EAST_SOUTH]: document.createElement('optgroup')
     };
     
     // 设置分组标签
-    campusGroups[CAMPUS.WEST_NORTH].label = '西北校区(老校区)';
-    campusGroups[CAMPUS.EAST_SOUTH].label = '东南校区(新校区)';
-    campusGroups[CAMPUS.QIYI].label = '七一路校区';
+    campusGroups[CAMPUS.WEST_NORTH].label = '西北校区(北校区)';
+    campusGroups[CAMPUS.EAST_SOUTH].label = '东南校区(东校区)';
     
     // 创建选项
     locations.forEach(location => {
@@ -452,8 +452,18 @@ function initTooltips() {
 }
 
 /**
- * 显示欢迎消息
+ * 显示欢迎信息
  */
 function showWelcomeAlert() {
-    showAlert('欢迎使用南阳理工学院校园导航系统！', 'success');
+    const welcomeMessage = `
+        <h5>欢迎使用南阳理工学院校园导航系统！</h5>
+        <p>本系统提供校园内的路径规划和导航服务。</p>
+        <ul>
+            <li>点击左侧地点列表或地图上的标记可查看详细信息</li>
+            <li>使用右侧面板可进行路径查询</li>
+            <li>支持按最短距离或最短时间进行路径规划</li>
+        </ul>
+        <p class="mb-0"><small>作者：杨博文（2415929683） - 完成日期：2025.5.20</small></p>
+    `;
+    showAlert(welcomeMessage, 'info', 10000);
 } 
